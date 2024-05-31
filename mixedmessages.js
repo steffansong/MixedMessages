@@ -1,35 +1,39 @@
 console.log('This is the start of the random messages!')
-const messages = []
-const tarotImage = ['The Fool', 'The Devil','The Empress','The Magician','The Emperor','The Wheel of Fortune','The High Priestess','Death', 'The Sun','The Moon']
-const luck = []
+
 
 //Message generator for jokes
 
 //Lists of various parts of the random message
-const things = ['polar bear', 'tree', 'butterfly', 'elephant', 'bear', 'coral reef','blue whale','octopus', 'panda', 'flower','president', 'bald eagle'];
-const emotions = ['sad', 'happy', 'frustrated', 'depressed', 'excited', 'angry', 'surprised', 'worried', 'confused', 'bored', 'lonely'];
-const action = ['cross the road', 'drop out of school', 'eat 12 bananas', 'turn red', 'turn blue', 'go to the doctor', 'stand up', 'blush', 'close their eyes']
-const reason = ["Because they can't keep a straight face!","Because they can't stop cracking up!","Because they take things too literally!","Because it's too far to walk!","Because they couldn't find the remote!","Because they saw the salad dressing!","Because they're always in stitches!","Because they had too many squares in their diet!", "Because they were feeling a bit crumby!", "Because they were grape at it!"] 
+const tarotImage = ['The Fool', 'The Devil','The Empress','The Magician','The Emperor','The Wheel of Fortune','The High Priestess','Death', 'The Sun','The Moon']
+const luck = ['Good','Bad','Somewhat Okay','Somewhat Bad','Could be better','Could be worse','the BESTTT :)', 'the Worstt:(']
+let fortunes = ["A beautiful, smart, and loving person will be coming into your life.",
+  "A fresh start will put you on your way.",
+  "A golden egg of opportunity falls into your lap this month.",
+  "A smile is your personal welcome mat.",
+  "All your hard work will soon pay off."
+]
 
 
-//Function to get random item from each list and return joke, takes arrays as params
-function mixedMessages(things, emotions, acts, reas) {
-    //picks a thing from each list and assigns it to a variable
-    const randThing = things[Math.floor(Math.random() * things.length)];
-    const randEmote = emotions[Math.floor(Math.random() * emotions.length)];
-    const randAction = acts[Math.floor(Math.random() * acts.length)];
-    const randReason = reas[Math.floor(Math.random() * reas.length)];
+//Function to get random item from each list and return fortune prediction, takes arrays as params
+function mixedMessages(tarotImage, luck, fortunes) {
+    //picks an item from each list and assigns it to a variable
+    const randTarotImage = tarotImage[Math.floor(Math.random() * things.length)];
+    const randLuck = luck[Math.floor(Math.random() * emotions.length)];
+    const randFortunes = fortunes[Math.floor(Math.random() * acts.length)];
 
-    //determines joke type between 2 types
-    const jokeType = Math.floor(Math.random() * 2);
-    if (jokeType === 0) {
-        return `Why was the ${randThing} ${randEmote}? ${randReason}`;
-    } else {
-        return `Why did the ${randThing} ${randAction}? ${randReason}`;
-    }
+    return `Your tarot card that watches over you is : ${randTarotImage}.
+    Your luck for today is ${randLuck} !!!
+    Last of all, your fortune message is ${randFortunes}.
+    Best of luck to you and may fortune smile on you :)
+    `    
 }
 
-console.log(mixedMessages(things,emotions,action,reason));
-//joke possiblities:
-//why was the ${thing} ${emotion}? ${random reason}
-//why did the ${thing} ${random action}? ${random reason}
+let button = document.getElementById('fortuneButton');
+let fortune = document.getElementById('fortune');
+function showFortune(){
+    fortune.innerHTML = mixedMessages();
+    button.innerHTML = "Test your fortune again???";
+    button.style.cursor = "default";
+}
+
+button.addEventListener('click',showFortune)
