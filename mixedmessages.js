@@ -23,7 +23,7 @@ function mixedMessages(tarotImage, luck, fortunes) {
 
     return `Your tarot card that watches over you is : ${randTarotImage}.
     Your luck for today is ${randLuck} !!!
-    Last of all, your fortune message is ${randFortunes}.
+    Last of all, your fortune message is '${randFortunes}'.
     Best of luck to you and may fortune smile on you :)
     `    
 }
@@ -31,9 +31,10 @@ function mixedMessages(tarotImage, luck, fortunes) {
 let button = document.getElementById('fortuneButton');
 let fortune = document.getElementById('fortune');
 function showFortune(){
-    fortune.innerHTML = mixedMessages();
+    fortune.innerHTML = mixedMessages(tarotImage, luck, fortunes);
     button.innerHTML = "Test your fortune again???";
     button.style.cursor = "default";
 }
 
 button.addEventListener('click',showFortune)
+
