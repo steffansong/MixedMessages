@@ -17,9 +17,9 @@ let fortunes = ["A beautiful, smart, and loving person will be coming into your 
 //Function to get random item from each list and return fortune prediction, takes arrays as params
 function mixedMessages(tarotImage, luck, fortunes) {
     //picks an item from each list and assigns it to a variable
-    const randTarotImage = tarotImage[Math.floor(Math.random() * things.length)];
-    const randLuck = luck[Math.floor(Math.random() * emotions.length)];
-    const randFortunes = fortunes[Math.floor(Math.random() * acts.length)];
+    const randTarotImage = tarotImage[Math.floor(Math.random() * tarotImage.length)];
+    const randLuck = luck[Math.floor(Math.random() * luck.length)];
+    const randFortunes = fortunes[Math.floor(Math.random() * fortunes.length)];
 
     return `Your tarot card that watches over you is : ${randTarotImage}.
     Your luck for today is ${randLuck} !!!
